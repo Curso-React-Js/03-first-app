@@ -23,14 +23,17 @@ const getResult = (a, b) => {
   return a + b;
 }
 
-export const FirstApp = () => {
+// props => son las propiedades que envian desde otro lugar
+// export const FirstApp = ( props ) => {
+export const FirstApp = ({ title = 'Hola, Soy Angel', subTitle }) => {
+  // console.log(props);
 
   return (
     <>
-      <h1>Angel</h1>
+      <h1>{ title }</h1>
       {/* <h1>Result: { getResult(1, 3) }</h1> */}
       {/* <code>{ JSON.stringify( newMessage ) }</code> */}
-      <p>Soy un subtitulo</p>
+      <p>{ subTitle + 1 }</p>
     </>
   );
 }
