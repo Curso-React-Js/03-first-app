@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom/client'; // Para renderizar
 // import { HelloWorldApp } from './HelloWorldApp';
 import { FirstApp } from './FirstApp';
 
+import './styles.css';
+
 // Un componente
 // const App = () => {
 //   return (<h1>Hola Mundo!!!</h1>);
