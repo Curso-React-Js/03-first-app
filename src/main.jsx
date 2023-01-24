@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'; // Para renderizar
-import { HelloWorldApp } from './HelloWorldApp';
+
+// Componentes
+// import { HelloWorldApp } from './HelloWorldApp';
+import { FirstApp } from './FirstApp';
 
 // Un componente
 // const App = () => {
@@ -10,6 +13,7 @@ import { HelloWorldApp } from './HelloWorldApp';
 // Forma de renderizar el componente en el DOM
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HelloWorldApp />
+    {/* <HelloWorldApp /> */}
+    <FirstApp />
   </React.StrictMode>
 );
