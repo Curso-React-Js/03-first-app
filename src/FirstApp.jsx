@@ -1,3 +1,6 @@
+// Instalar npm i prop-types
+import PropTypes from 'prop-types';
+
 // IMPORTACION DE FRAGMENTO
 // import { Fragment } from 'react'
 // export const FirstApp = () => {
@@ -25,7 +28,7 @@ const getResult = (a, b) => {
 
 // props => son las propiedades que envian desde otro lugar
 // export const FirstApp = ( props ) => {
-export const FirstApp = ({ title = 'Hola, Soy Angel', subTitle }) => {
+export const FirstApp = ({ title, subTitle }) => {
   // console.log(props);
 
   return (
@@ -33,7 +36,12 @@ export const FirstApp = ({ title = 'Hola, Soy Angel', subTitle }) => {
       <h1>{ title }</h1>
       {/* <h1>Result: { getResult(1, 3) }</h1> */}
       {/* <code>{ JSON.stringify( newMessage ) }</code> */}
-      <p>{ subTitle + 1 }</p>
+      <p>{ subTitle }</p>
     </>
   );
+}
+
+FirstApp.propTypes = {
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.number.isRequired,
 }
