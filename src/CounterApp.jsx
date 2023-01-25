@@ -15,7 +15,10 @@ export const CounterApp = ({ value }) => {
   const handledAdd = () => { 
     // setCounter(counter + 1); // cambia el estado
     setCounter((c) => c + 1);
-  } 
+  }
+
+  const handleSubstract = () => setCounter(counter - 1);
+  const handleReset = () => setCounter(value);
 
   return (
     <>
@@ -25,6 +28,8 @@ export const CounterApp = ({ value }) => {
       {/* Solo se manda la referencia */}
       {/* Es lo mismo que (event) => { .. } */}
       <button onClick={ handledAdd }>+ 1</button>
+      <button onClick={ handleSubstract }>- 1</button>
+      <button onClick={ handleReset }>Reset</button>
     </>
   );
 }
