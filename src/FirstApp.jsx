@@ -28,7 +28,7 @@ const getResult = (a, b) => {
 
 // props => son las propiedades que envian desde otro lugar
 // export const FirstApp = ( props ) => {
-export const FirstApp = ({ title, subTitle }) => {
+export const FirstApp = ({ title, subTitle, name }) => {
   // console.log(props);
 
   return (
@@ -37,11 +37,19 @@ export const FirstApp = ({ title, subTitle }) => {
       {/* <h1>Result: { getResult(1, 3) }</h1> */}
       {/* <code>{ JSON.stringify( newMessage ) }</code> */}
       <p>{ subTitle }</p>
+      <p>{ name }</p>
     </>
   );
 }
 
 FirstApp.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.number.isRequired,
+  subTitle: PropTypes.string,
+}
+
+// Default props
+FirstApp.defaultProps = {
+  title: 'No hay titulo',
+  subTitle: 'No hay subtitulo',
+  name: 'Luis Angel'
 }
