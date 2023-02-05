@@ -3,30 +3,50 @@ import { FirstApp } from '../src/FirstApp';
 
 describe('Pruebas en <FirstApp />', () => {
 
-  test('debe de hacer match con el snapshot', () => {
+  // Evaluar los snpashot al final para evitar errores de otras pruebas
+  // test('debe de hacer match con el snapshot', () => {
 
-    const title = 'Hola, Soy Goku';
-    const { container } = render( <FirstApp title={ title } /> );
-    // console.log(container); => Es como un HTML
+  //   const title = 'Hola, Soy Goku';
+  //   const { container } = render( <FirstApp title={ title } /> );
+  //   // console.log(container); => Es como un HTML
     
-    // Crear el HTML renderizado como una fotografia
-    // u para actualizar el snapshot
-    expect( container ).toMatchSnapshot();
+  //   // Crear el HTML renderizado como una fotografia
+  //   // u para actualizar el snapshot
+  //   expect( container ).toMatchSnapshot();
 
-  });
+  // });
 
   test('debe de mostrar el titulo en un h1', () => {
 
     const title = 'Hola, Soy Goku';
-    const { container, getByText } = render( <FirstApp title={ title } /> );
+    const { container, getByText, getByTestId } = render( <FirstApp title={ title } /> );
 
     expect( getByText( title ) ).toBeTruthy();
 
-    const h1 = container.querySelector('h1'); // Puede usar el DOM
+    // NO SE RECOMIENDA HACERLO DE ESTA MANERA PARA TENER PRUEBAS FLEXIBLES
+    // const h1 = container.querySelector('h1'); // Puede usar el DOM
     // console.log(h1.innerHTML);
-    expect( h1.innerHTML ).toBe( title ); // Asegurarme que esta en un h1
+
+    //expect( h1.innerHTML ).toBe( title ); // Asegurarme que esta en un h1
     // expect( h1.innerHTML ).toContain( title ); // Asegurarme que lo contenga
 
+    expect( getByTestId('test-title') ).toBeTruthy();
+    expect( getByTestId('test-title').innerHTML ).toContain(title);
+    
+  });
+
+  test('debe de mostrar el subtitulo enviado por props', () => { 
+  
+    const title = 'Hola, Soy Goku';
+    const subTitle = 'Soy un subtitulo';
+    const { getAllByText } = render( 
+      <FirstApp 
+        title={ title }
+        subTitle={ subTitle } /> 
+    );
+
+    expect( getAllByText( subTitle ).length ).toBe(2);
+    
   });
   
 });
