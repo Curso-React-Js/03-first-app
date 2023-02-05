@@ -17,7 +17,7 @@ describe('Pruebas en 08-imp-exp', () => {
 
     const id = 100;
     const heroe = getHeroeById( id );
-    console.log(heroe);
+    // console.log(heroe);
 
     // expect( heroe ).toBe( undefined );
     expect( heroe ).toBeFalsy();
