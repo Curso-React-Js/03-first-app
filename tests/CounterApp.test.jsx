@@ -1,0 +1,26 @@
+import { render, screen } from '@testing-library/react';
+import { CounterApp } from '../src/CounterApp';
+
+describe('Pruebas en el <CounterApp />', () => {
+
+  const initialValue = 10;
+
+  test('debe de hacer match con el snapshot', () => {
+
+    const { container } = render(<CounterApp value={ initialValue } />);
+
+    expect( container ).toMatchSnapshot();
+
+  });
+
+  test('debe de mostrar el valor inicial de 100 <CounterApp value={100}/>', () => {
+
+    const valorInicial = 100;
+    render(<CounterApp value={ valorInicial } />);
+    
+    expect( +screen.getByRole('heading', { level: 2 } ).innerHTML ).toBe(valorInicial);
+    expect( screen.getByText( valorInicial ) ).toBeTruthy();
+
+  });
+
+});
